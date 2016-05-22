@@ -32,7 +32,7 @@ import User = DAO.User;
 
 export class UserDAO implements DAO.DAO<User> {
     private id:number;
-    private url:string='data/users.json';
+    private url:string='users.json';
     private users:{ [id:number]:User; };
     private _users:User[];
     private fs=fs;

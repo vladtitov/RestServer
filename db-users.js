@@ -9,7 +9,7 @@ var fs = require('fs');
 var UserDAO = (function () {
     function UserDAO() {
         var _this = this;
-        this.url = 'data/users.json';
+        this.url = 'users.json';
         this.fs = fs;
         this._ = _;
         this.id = 1;

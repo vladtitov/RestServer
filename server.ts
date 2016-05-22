@@ -26,14 +26,20 @@ app.use(session({
 }));
 app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
-app.use(express.static(__dirname + '../../app'));
+var getDirectory = function(){
+    var dir = __dirname;
+    if(dir.indexOf('node_modules')===-1) return dir;
+   return dir.substr(0,dir.indexOf('node_modules')-1);
+}
+console.log(getDirectory());
+app.use(express.static(__dirname + 'app'));
 /*app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });*/
 
-const port:number = process.env.PORT || 8080;
+const port:number = process.env.PORT || 8888;
 const router = express.Router();
 
 router.get('/user/:id', function (req, res) {
