@@ -1,10 +1,9 @@
 /**
  * Created by Vlad on 5/14/2016.
  */
-/// <reference path="dao.ts" />
-///<reference path="../typings/lodash/lodash.d.ts"/>
-///<reference path="../typings/node/node.d.ts"/>
 "use strict";
+///<reference path="./typings/lodash/lodash.d.ts"/>
+///<reference path="./typings/node/node.d.ts"/>
 var _ = require('lodash');
 var fs = require('fs');
 var UserDAO = (function () {

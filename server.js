@@ -11,7 +11,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookie = require('cookie-parser');
-var DAO = require('./server/db-users');
+var DAO = require('./db-users');
 var userDAO = new DAO.UserDAO();
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
@@ -22,7 +22,7 @@ app.use(session({
 }));
 app.use('/api', bodyParser.urlencoded({ extended: true }));
 app.use('/api', bodyParser.json());
-app.use(express.static(__dirname + '/pub'));
+app.use(express.static(__dirname + '../../app'));
 /*app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -59,6 +59,7 @@ router.post('/user/login', function (req, res) {
 // prefixed all routes with /api
 app.use('/api', router);
 app.listen(port, function () {
+    console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
 });
 //# sourceMappingURL=server.js.map

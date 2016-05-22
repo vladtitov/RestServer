@@ -1,26 +1,47 @@
 /**
  * Created by Vlad on 5/14/2016.
  */
-/// <reference path="dao.ts" />
-///<reference path="../typings/lodash/lodash.d.ts"/>
-///<reference path="../typings/node/node.d.ts"/>
+
+///<reference path="./typings/lodash/lodash.d.ts"/>
+///<reference path="./typings/node/node.d.ts"/>
 
 
+module DAO {
+    export interface Identifiable {
+        id?: number;
+    }
+
+    export interface User extends Identifiable {
+        firstname: string;
+        lastname: string;
+        username:string;
+        password:string;
+        email:string;
+    }
+    export interface DAO<T extends Identifiable> {
+        create(t: T):T;
+        read(id: number):T;
+        update(t: T):boolean;
+        delete(id: number):boolean;
+    }
+}
 
 import * as _ from 'lodash';
 var fs = require('fs');
-export class UserDAO implements DAO.DAO<VO.User> {
+import User = DAO.User;
+
+export class UserDAO implements DAO.DAO<User> {
     private id:number;
     private url:string='data/users.json';
-    private users:{ [id:number]:VO.User; };
-    private _users:VO.User[];
+    private users:{ [id:number]:User; };
+    private _users:User[];
     private fs=fs;
     private _=_;
     constructor() {
         this.id = 1;
         this.fs.readFile(this.url, 'utf8',(err, data)=>{
             if (err) throw err;
-            var obj:VO.User[] = JSON.parse(data);
+            var obj:User[] = JSON.parse(data);
             this._users = obj;
             this.users = this._.keyBy(obj,'id');
         });
@@ -35,7 +56,7 @@ export class UserDAO implements DAO.DAO<VO.User> {
             callBack(true);
         });
     }
-    create(user:VO.User) {
+    create(user:DAO.User) {
         user.id = this.id;
         this.id++;
         this.users[user.id] = user;
@@ -44,7 +65,7 @@ export class UserDAO implements DAO.DAO<VO.User> {
     read(id:number) {
         return this.users[id];
     }
-    update(user:VO.User) {
+    update(user:User) {
         if (this.users[user.id] === null) {
             return false;
         }
@@ -58,8 +79,8 @@ export class UserDAO implements DAO.DAO<VO.User> {
         this.users[id] = null;
         return true;
     }
-    login(user:VO.User):VO.User{
-        this._users.forEach(function (item:VO.User) {
+    login(user:User):User{
+        this._users.forEach(function (item:User) {
             if(item.username == user.username && item.password==user.password) return item;
         })
         return null;
