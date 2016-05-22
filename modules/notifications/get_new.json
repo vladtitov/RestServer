@@ -1,0 +1,30 @@
+{
+  "total":19,
+  "notifications":[
+    {
+      "group":"connections",
+      "n":5
+    },
+    {
+      "group":"alliance",
+      "n":0
+    },
+    {
+      "group":"messages",
+      "n":5
+    },
+    {
+      "group":"task",
+      "n":3
+    },
+    {
+      "group":"service",
+      "n":3
+    },
+    {
+      "group":"comments",
+      "n":3
+    }
+  ]
+
+}

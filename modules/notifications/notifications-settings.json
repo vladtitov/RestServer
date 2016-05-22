@@ -1,0 +1,54 @@
+{
+  "get_new":"modules/notifications/get_new.json",
+  "get_group":"modules/notifications/{index}.json",
+  "notifications_set_old":"notifications-set-old",
+  "sender_url":"profile/{sender-id}#notification/{notification-id}",
+  "accept":"notifications/accepted/{notification-id}",
+  "reject":"notifications/rejected/{notification-id}",
+  "get_details":"notifications/get-details/{notification-id}",
+  "groups": [
+    {
+      "id": 1,
+      "label": "Connections",
+      "index":"connections",
+      "template":"accept-reject-template",
+      "redirect":"messages/notifications/{notification-id}"
+    },
+    {
+      "id": 2,
+      "label": "Messages",
+      "index":"messages",
+      "template":"messages-template",
+      "redirect":"messages/#notification/{notification-id}"
+    },
+    {
+      "id": 3,
+      "label": "Alliance",
+      "index":"alliance",
+      "template":"accept-reject-template",
+      "redirect":"alliances/#notification/{notification-id}"
+    },
+    {
+      "id": 4,
+      "label": "Tasks",
+      "index":"task",
+      "template":"accept-reject-template",
+      "redirect":"atasks/#notification/{notification-id}"
+
+    },
+    {
+      "id": 5,
+      "label": "Service",
+      "index":"service",
+      "template":"view-details-template",
+      "redirect":"services/#notification/{notification-id}"
+    },
+    {
+      "id": 6,
+      "label": "Comments",
+      "index":"comments",
+      "template":"comments-template",
+      "redirect":"comments/#notification/{notification-id}"
+    }
+  ]
+}

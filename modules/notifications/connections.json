@@ -1,0 +1,65 @@
+{
+  "group":"connections",
+  "notifications":[
+    {
+      "id":200,
+      "sender_id":34,
+      "img":"test/img/Vista (11).png",
+      "name":"Name of Person 1",
+      "message":"name of alliance 1",
+      "date":3456
+    },
+    {
+      "id":203,
+      "sender_id":74,
+      "img":"test/img/Vista (12).png",
+      "name":"Name of Person 2",
+      "message":"name of alliance 2",
+      "date":678596
+    },
+    {
+      "id":206,
+      "sender_id":23,
+      "img":"test/img/Vista (13).png",
+      "name":"Name of Person 3",
+      "message":"you have accepted to join Alliance 100",
+      "date":8989899,
+      "one_time":"yes"
+    },
+    {
+      "id":220,
+      "sender_id":54,
+      "img":"test/img/Vista (14).png",
+      "name":"Name of Person 4",
+      "message":"name of alliance 2",
+      "date":678596
+    },
+    {
+      "id":300,
+      "sender_id":78,
+      "img":"test/img/Vista (15).png",
+      "name":"Name of Person 5",
+      "message":"you have accepted to join Alliance y",
+      "date":8989844444499,
+      "one_time":"yes"
+    },
+    {
+      "id":302,
+      "sender_id":55,
+      "img":"test/img/Vista (16).png",
+      "name":"Name of Person 6",
+      "message":"you have accepted to join Alliance 444444",
+      "date":8989,
+      "one_time":"yes"
+    },
+    {
+      "id":700,
+      "sender_id":98,
+      "img":"test/img/Vista (17).png",
+      "name":"Name of Person 7",
+      "message":"name fo Alliance 3 ",
+      "date":34569999
+    }
+  ]
+
+}

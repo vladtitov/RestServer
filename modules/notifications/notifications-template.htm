@@ -1,0 +1,186 @@
+
+<style>
+    #NotificationsList .themessage{
+        display: inline-block;
+        width: 200px;
+        white-space: nowrap;
+        overflow:hidden;
+        text-overflow: ellipsis;
+    }
+    /*#NotificationsList li>hr{
+        margin-top: 20px;
+
+    }*/
+
+    #NotificationsList li{
+        min-height: 10em;
+        /*border-bottom: solid 2px grey;*/
+        /* padding: 1em;*/
+    }
+    #NotificationsList li>p{
+        margin-top: 5em;
+    }
+    #NotificationsList li a>div{
+        display: inline-block;
+        font-size: 20px;
+        vertical-align: middle;
+    }
+    #NotificationsList li .icon{
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background-size: 100%;
+
+
+    }
+    #NotificationsList .list-view-group-header:active{
+        -webkit-filter:brightness(1.5);
+        filter: brightness(1.6);
+
+    }
+    #NotificationsList li>a{
+        color: inherit;
+        display: block;
+        margin: 10px 0 10px 0;
+
+    }
+    #NotificationsList li>a:hover{
+        background-color:lavender;
+    }
+    #NotificationsList li:hover{
+        background-color: transparent;
+        cursor: default;
+    }
+
+</style>
+
+<!--                     TEMPALTES             -->
+
+<script type="text/template"  id="notifications-list">
+    <div class="list-view-group-container p-b-10">
+        <a  href="#" class="list-view-group-header text-uppercase"  data-id="header">
+            <%=label %>
+            <span class="pull-right"><span data-text="total"></span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </a>
+        <ul data-id="list"> </ul>
+    </div>
+</script>
+
+<script type="text/template" id="accept-reject-template">
+    <li data-id="<%=id%>" >
+        <a href="<%= sender_url %>" >
+
+            <div class="icon" style="background-image:url('<%= img %>'); "></div>
+            <div class="name"><%=name%></div>
+
+        </a>
+
+        <div class="date"><%= date %></div>
+
+        <div class="item-content">
+            <a href="<%= redirect %>" data-id="redirect" >
+                <%= message %><br/>
+            </a>
+            <div class="actions">
+                <a class="btn btn-primary" data-id="accept">Accept</a>
+                <a class="btn btn-warning" data-id="reject">Reject</a>
+            </div>
+        </div>
+        <hr/>
+    </li>
+</script>
+
+<script type="text/template" id="messages-template">
+    <li data-id="<%=id%>" >
+        <a href="<%= sender_url %>" >
+
+            <div class="icon" style="background-image:url('<%= img %>'); "></div>
+            <div class="name"><%=name%></div>
+
+            <div class="date"><%= date %></div>
+        </a>
+        <div class="item-content">
+            <a href="<%= redirect %>" data-id="redirect" >
+                <%= message %><br/>
+            </a>
+        </div>
+        <hr/>
+    </li>
+</script>
+<script type="text/template" id="view-details-template">
+    <li data-id="<%=id%>" >
+        <a href="<%= sender_url %>" >
+
+            <div class="icon" style="background-image:url('<%= img %>'); "></div>
+            <div class="name"><%=name%></div>
+
+        </a>
+        <div class="date"><%= date %></div>
+        <div class="item-content">
+            <a href="<%= redirect %>" data-id="redirect" >
+                <%= message %><br/>
+            </a>
+        </div>
+        <a href="#" class="btn btn-default" data-id="view">View</a>
+        <hr/>
+    </li>
+</script>
+
+<script type="text/template" id="comments-template">
+    <li data-id="<%=id%>" >
+        <a href="<%= sender_url %>" >
+
+            <div class="icon" style="background-image:url('<%= img %>'); "></div>
+            <div class="name"><%=name%></div>
+
+
+            <div class="date"><%= date %></div>
+        </a>
+        <div class="item-content">
+            <s href="<%= redirect %>" data-id="redirect" >
+                <%= message %><br/>
+            </s>
+        </div>
+        <hr/>
+    </li>
+</script>
+
+<script type="text/template" id="one-time-item">
+    <li class="onetime" data-id="<%=id%>" >
+        <a href="<%= sender_url %>">
+            <div class="icon" style="background-image:url('<%= img %>'); "></div>
+            <div class="name"><%=name%></div>
+        </a>
+        <div class="date"><%= date %></div>
+        <div class="item-content" data-id="close">
+            <%= message %><br/>
+            <div class="actions"> </div>
+        </div>
+        <hr/>
+    </li>
+</script>
+
+<div id="NotificationsDetails" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-id="close">&times;</button>
+                <h4 class="modal-title" data-id="header" ></h4>
+            </div>
+            <div class="modal-body">
+                <p data-id="message">Some text goes here</p>
+                <p>
+                    <!--<textarea data-id="respond">
+
+                    </textarea>-->
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-id="accept">Accept</button>
+                <button type="button" class="btn btn-warning" data-id="reject">Reject</button>
+                <button type="button" class="btn btn-default" data-id="close">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
